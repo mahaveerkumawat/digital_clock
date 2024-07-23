@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+
+        .main {
+            height: 500px;
+            width: 500px;
+            background-color: green;
+
+        }
+        #main2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .changehours{
+            cursor: pointer;
+        }
+        .changeclr{
+            color: gray !important;
+        }
+    </style>
+</head>
+
+<body onload="clock()">
+    <div class="main">
+        <div class="changehours">24 hours</div>
+        <h1 id="main2">12: 08 : 09</h1>
+    </div>
+</body>
+<script>
+
+    // var main_h2 = document.querySelector('#main')
+    // // console.log(main_h2.innerText)
+
+    // var changehours = document.querySelector('.changehours')
+    // console.log(changehours)
+
+    // var flag = false;
+
+    // var time = new Date()
+    // console.log(time)
+    // console.log(time.getHours())
+    // console.log(time.getMinutes())
+    // console.log(time.getSeconds())
+    // console.log(time.getDate())
+    // console.log(time.getFullYear())
+    // console.log(time.getDay())
+    // console.log(time.getMilliseconds())
+    // console.log(time.getMonth())
+
+
+
+
+    // function clock() {
+    //     var time = new Date()
+    //     var hourse = time.getHours()
+    //     var minutes = time.getHours()
+    //     var seconds = time.getSeconds()
+
+    //     if(flag == false){
+    //         if(hourse> 12) hourse = hourse-12;
+
+    //     }
+
+
+    //     if(seconds<10){
+    //         seconds = '0'+ seconds;
+    //     }
+    //     if(minutes<10){
+    //         minutes = '0'+ minutes;
+    //     }
+    //     if(hourse<10){
+    //         hourse = '0'+ hourse;
+    //     }
+
+    //     main_h2.innerText = `${hourse}: ${minutes}: ${seconds}`
+
+
+    // }
+
+    // changehours.addEventListener(
+    //     'click',
+    //     function(){
+    //         changehours.classList.toggle('changeclr')
+    //         flag = !flag;
+    //     }
+    // )
+
+    // setInterval(
+    //     clock,
+    //     1000
+    // )
+
+    var main_h2 = document.querySelector('#main2');
+var changehours = document.querySelector('.changehours');
+var flag = false;
+
+function clock() {
+    var time = new Date();
+    var hours = time.getHours();
+    var minutes = time.getMinutes();
+    var seconds = time.getSeconds();
+
+    if (!flag && hours > 12) {
+        hours = hours - 12;
+    }
+
+    if (seconds < 10) {
+        seconds = '0' + seconds;
+    }
+    if (minutes < 10) {
+        minutes = '0' + minutes;
+    }
+    if (hours < 10) {
+        hours = '0' + hours;
+    }
+
+    main_h2.innerText = `${hours}: ${minutes}: ${seconds}`;
+}
+
+changehours.addEventListener(
+    'click',
+    function(){
+        changehours.classList.toggle('changeclr');
+        flag = !flag;
+    }
+);
+
+setInterval(clock, 1000);
+
+</script>
+
+</html>
